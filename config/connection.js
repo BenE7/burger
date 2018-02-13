@@ -1,4 +1,3 @@
-
 var mysql = require("mysql");
 
 var connection = mysql.createConnection({
@@ -9,6 +8,7 @@ var connection = mysql.createConnection({
     password: "",
     database: "burgers_db"
 });
+
 
  module.exports = connection;
 

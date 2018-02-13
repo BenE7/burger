@@ -1,8 +1,8 @@
-var sqlConnection = require ("../config/connection.js")
+var connection = require ("../config/connection.js")
 
 var orm = {
-    all: function (tableInput, cb) {
-        var queryString = "SELECT * FROM " + tableInput + ";";
+    selectAll: function (Burgers, cb) {
+        var queryString = "SELECT * FROM " + Burgers + ";";
         connection.query(queryString, function (err, result) {
             if (err) {
                 throw err;
@@ -10,15 +10,17 @@ var orm = {
             cb(result);
         });
     },
-    create: function (table, cols, vals, cb) {
-        var queryString = "INSERT INTO " + table;
+    insertOne: function (Burgers, cols, vals, cb) {
+        var queryString = "INSERT INTO " + Burgers;
 
         queryString += " (";
         queryString += cols.toString();
         queryString += ") ";
         queryString += "VALUES (";
-        queryString += printQuestionMarks(vals.length);
+        queryString += vals.toString();
+        // queryString += printQuestionMarks(vals.length);
         queryString += ") ";
+    
 
         console.log(queryString);
 
@@ -31,11 +33,13 @@ var orm = {
         });
     },
     // An example of objColVals would be {name: panther, sleepy: true}
-    update: function (table, objColVals, condition, cb) {
-        var queryString = "UPDATE " + table;
+    updateOne: function (Burgers, col, val, condition, cb) {
+        var queryString = "UPDATE " + Burgers;
 
         queryString += " SET ";
-        queryString += objToSql(objColVals);
+        queryString += "col";
+        queryString += "val";
+        // queryString += objToSql(objColVals);
         queryString += " WHERE ";
         queryString += condition;
 
