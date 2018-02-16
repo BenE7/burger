@@ -1,5 +1,15 @@
 var connection = require ("../config/connection.js")
 
+function printQuestionMarks(num) {
+    var arr = [];
+
+    for (var i = 0; i < num; i++) {
+        arr.push("?");
+    }
+
+    return arr.toString();
+}
+
 var orm = {
     selectAll: function (Burgers, cb) {
         var queryString = "SELECT * FROM " + Burgers + ";";
@@ -17,8 +27,8 @@ var orm = {
         queryString += cols.toString();
         queryString += ") ";
         queryString += "VALUES (";
-        queryString += vals.toString();
-        // queryString += printQuestionMarks(vals.length);
+        //queryString += vals.toString();
+        queryString += printQuestionMarks(vals.length);
         queryString += ") ";
     
 

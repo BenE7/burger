@@ -29,13 +29,11 @@
 
 .form-group{
     text-align: center;
+    margin-bottom: 20px;
 }
 
 #burgerbutton{
     text-align: center;
 }
 
-@keyframes burger {
-
-}
     
