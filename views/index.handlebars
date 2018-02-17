@@ -10,8 +10,12 @@
 
 <ul>
     {{#each Burgers}} {{#unless this.devoured}}
-    <li id="notdevoured">{{this.id}} {{this.burger_name}}</li> 
+    <li id="notdevoured">{{this.id}} {{this.burger_name}}</li> <p>
+        <a href="/burgers/update/{{this.burgerID}}">
+            <button type="submit">Eat-Da --> {{this.burger_name}} </button>
+        </a>
     
+    </p>
     
      {{/unless}} 
      
@@ -20,7 +24,8 @@
 
 
 <ul>
-    {{#each Burgers}} {{#if devoured}} 
+    {{#each Burgers}} {{#if this.devoured}}
+    <li>{{this.id}} {{this.burger_name}}</li> 
     {{/if}} 
     {{/each}}
 </ul>
